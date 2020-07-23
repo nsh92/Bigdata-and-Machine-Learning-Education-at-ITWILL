@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사원 검색 결과</title>
+</head>
+<body>
+<div align="center">
+    <h2> 사원 검색 결과</h2>
+    <table border="1" width="700">
+        <tr>
+            <th> 검색 사원 이름 </th>
+            <th> {{ ename }} </th>
+        </tr>
+        <tr>
+            <th> 사원 정보 </th>
+            <th>
+                <ul>
+                    {%if data : %}
+                        {%for row in data%}
+                        <li> {{row}} </li>
+                        {%endfor%}
+                    {%else%}
+                        <li> 그런 사원 없음 </li>
+                    {%endif%}
+                </ul>
+                <br>
+                <p> 전체 레코드 수 : {{size}}</p>
+            </th>
+        </tr>
+    </table>
+    <a href="/">index.html</a>
+</body>
+</html>
