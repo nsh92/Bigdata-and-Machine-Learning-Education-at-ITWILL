@@ -1,0 +1,30 @@
+import pytagcloud
+'''
+Anaconda Prompt에서 
+  pip install pygame
+  pip install pytagcloud
+  pip install simplejson
+'''
+
+# tag에 color, size, tag 사전 구성 
+word_count_list = pytagcloud.make_tags(word_top5, maxsize=80)
+# maxsize : 최대 글자크기
+print(word_count_list)
+'''
+[{'color': (91, 34, 34), 'size': 109, 'tag': '분석'}, {'color': (95, 159, 59), 'size': 80, 'tag': '데이터'}, {'color': (194, 214, 193), 'size': 47, 'tag': '형태소'}]
+'''
+pytagcloud.create_tag_image(word_count_list,
+                            'wordcloud.jpg', 
+                            size=(900, 600), 
+                            fontname='korean', rectangular=False)
+'''
+한글 단어 구름 시각화 Error 수정 
+C:\Users\user\Anaconda3\Lib\site-packages\pytagcloud\fonts 폴더에서
+  1. fonts.json 파일 내용 수정 
+  [
+    {
+        "name": "korean",
+        "ttf": "malgun.ttf",
+  2. C:\Windows\Fonts 폴더에서 '맑은 고딕' 서체 복사/fonts 폴더 붙여넣기
+  3. create_tag_image(fontname='korean') 속성 추가
+'''
